@@ -1,6 +1,6 @@
 class Matriz
 
-attr_accessor :filas,:cols, :matriz
+attr_accessor :filas, :cols, :matriz
 
 def initialize(m)
 @filas = m.size
@@ -8,8 +8,8 @@ def initialize(m)
 @matriz = m
 end
 
-def to_s (other) 
-   other.each do |fila|			
+def to_s () 
+   @matriz.each do |fila|			
    puts fila.join(" ")			
    end
 end
@@ -17,24 +17,25 @@ end
 def + (other)
    for i in 0...@filas do			
       for j in 0...@cols do			
-         other[i][j] = m[i][j] + other[i][j]
+         other.matriz[i][j] = @matriz[i][j] + other.matriz[i][j]
       end
    end
-   Matriz.new(other)
+   other.matriz
 end
 
 def - (other)
    for i in 0...@filas do			
       for j in 0...@cols do			
-         other[i][j] = m[i][j] - other[i][j]
+         other.matriz[i][j] = @matriz[i][j] - other.matriz[i][j]
       end
    end
-   Matriz.new(other)
+   other.matriz
 end
 
 def * (other) 
-   aux_m = Matriz.new(other)
-   for i in 0...@filas do			
+   aux_m = Array.new
+   for i in 0...@filas do
+      aux_m[i] = Array.new			
       for j in 0...@cols do			
          aux_m[i][j] = 0;
       end
@@ -42,19 +43,22 @@ def * (other)
    for i in 0...@filas do			
       for j in 0...other.cols do			
          for k in 0...other.filas do		
-            aux_m[i][j] += m[i][k] * other[k][j]	
+            aux_m[i][j] += @matriz[i][k] * other.matriz[k][j]	
          end
       end
    end
-   Matriz.new(aux_m)
+   Matriz.new(aux_m).matriz
 end
 
-def traspuestas (other)
-   for i in 0...@filas do			
+def traspuesta ()
+   aux_m = Array.new
+   for i in 0...@filas do
+      aux_m[i] = Array.new			
       for j in 0...@cols do
-      aux_m[i][j] = other[(@filas-1)-i][(@cols-1)-j]
+         aux_m[i][j] = @matriz[(@filas-1)-i][(@cols-1)-j]
       end
    end
-   Matriz.new(aux_m)
+   Matriz.new(aux_m).matriz
 end
 
+end
