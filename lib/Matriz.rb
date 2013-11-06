@@ -1,3 +1,4 @@
+require "Matriz.rb"
 class Matriz
 
 attr_accessor :filas, :cols, :matriz

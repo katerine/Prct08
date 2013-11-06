@@ -6,7 +6,7 @@ task :default => :spec
 
 desc "tests con --format documentation"
 	task :spec do
-	sh "rspec spec/Matrices_rspec.rb --format documentation"
+	sh "rspec spec/Matrices_spec.rb --format documentation"
 end
 
 
@@ -17,5 +17,5 @@ end
 
 desc "Ejecutar test con formato html"
 	task :thtml do
-	sh "rspec spec/Matrices_rspec.rb --format html"
+	sh "rspec spec/Matrices_spec.rb --format html"
 end
