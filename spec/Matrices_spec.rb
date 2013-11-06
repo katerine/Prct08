@@ -4,7 +4,7 @@ require "Fraccion.rb"
 describe Matriz do
   before :each do
       @m = Matriz.new([[1,1,1],[1,1,1],[1,1,1]])
-      @mf = Matriz.new([[1,Fraccion.new(2,4),1],[1,Fraccion.new(2,4),1],[1,Fraccion.new(2,4),1]])        
+      @mf = Matriz.new([[1,2/4,1],[1,2/4,1],[1,2/4,1]])        
   end
 
   it " Se debe poder sumar dos matrices de enteros" do
@@ -31,5 +31,10 @@ describe Matriz do
   it " Se debe poder sumar matrices de fracciones" do
      @aux = Matriz.new([[1,1,1],[1,1,1],[1,1,1]])
      (@mf + @aux).should == [[2,3/2,2],[2,3/2,2],[2,3/2,2]]
+  end
+
+  it "Se debe poder multiplicar dos matrices de racionales" do
+    @aux = Matriz.new([[1,1,1],[1,1,1],[1,1,1]])
+    (@mf * @aux).should == [[2,2,2],[2,2,2],[2,2,2]]
   end
 end

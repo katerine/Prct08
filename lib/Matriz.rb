@@ -1,4 +1,4 @@
-require "Matriz.rb"
+require "Fraccion.rb"
 class Matriz
 
 attr_accessor :filas, :cols, :matriz
@@ -61,5 +61,7 @@ def traspuesta ()
    end
    Matriz.new(aux_m).matriz
 end
+
+
 
 end
