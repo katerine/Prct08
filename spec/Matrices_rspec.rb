@@ -1,4 +1,4 @@
-require "Matrices.rb"
+require "Matriz.rb"
 
 describe Matrices do
 
